@@ -1,0 +1,171 @@
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: white;
+  background: linear-gradient(135deg, #ff6b6b, #f7b7a3, #a9c1d9, #5e5be0, #20d4c1);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+
+
+header {
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.nav {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links a {
+  margin: 0 1rem;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.signup-btn {
+  background: white;
+  color: black;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-weight: bold;
+}
+
+main {
+  text-align: center;
+  max-width: 800px;
+  padding: 4rem 2rem;
+}
+
+.tagline {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.3rem 1rem;
+  border-radius: 999px;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin: 0.5rem 0;
+}
+
+.description {
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.cta {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.detector-box {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 1rem;
+  margin-top: 3rem;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 1rem;
+  border: none;
+  resize: vertical;
+  background: transparent;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+}
+
+.bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.detect-btn {
+  background: white;
+  color: black;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-weight: bold;
+}
+.result-message {
+  margin-top: 20px;
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.1);   /* subtle transparent white */
+  color: rgba(255, 255, 255, 0.85);       /* mostly white text with slight transparency */
+  font-weight: 700;
+  font-size: 1.2rem;
+  border-radius: 16px;
+  max-width: 600px;
+  word-wrap: break-word;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  user-select: none;
+}
+
+
+#progressBar {
+  display: none; /* hidden initially */
+  width: 100%;
+  max-width: 600px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1); /* subtle white transparent background */
+  border-radius: 16px;
+  margin: 20px auto 0;
+  box-shadow: 0 0 10px rgba(94, 91, 224, 0.3); /* soft blueish glow like your gradient */
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+#progress {
+  height: 100%;
+  width: 0%;
+  background: rgba(94, 91, 224, 0.7); /* semi-transparent purple-blue from your gradient */
+  border-radius: 16px 0 0 16px;
+  transition: width 0.3s ease;
+}
+
