@@ -1,0 +1,20 @@
+# Data
+*.csv
+*.tsv
+
+# Model files
+saved_model*/
+*.pt
+*.bin
+*.safetensors
+
+# MLflow
+mlruns/
+
+# Jupyter
+.ipynb_checkpoints/
+__pycache__/
+
+# Environment
+.env
+*.pyc
