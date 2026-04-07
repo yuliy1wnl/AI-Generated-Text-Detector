@@ -32,7 +32,7 @@ Most AI text detection projects report inflated metrics due to data leakage. Thi
 | OOD F1 | 98.5% |
 
 ### Confusion Matrix
-![Confusion Matrix](assets/confusion_matrices.png)
+![Confusion Matrix](assets/confusion_matrix.png)
 
 ---
 
@@ -80,10 +80,14 @@ All experiments tracked with MLflow:
 ```
 AI-Generated-Text-Detector/
 ├── notebooks/
-│   ├── training.ipynb       # Full training pipeline
-│   └── gui_deployment.ipynb # Web interface via Ngrok
+│   └── training.ipynb            # Full training pipeline
 ├── assets/
-│   └── confusion_matrices.png
+│   ├── gui/
+│   │   ├── static/styles.css     # Web interface styling
+│   │   └── templates/index.html  # Web interface template
+│   └── confusion_matrix.png      # Evaluation results
+├── data/
+│   └── README.md                 # Dataset download instructions
 ├── requirements.txt
 ├── .gitignore
 └── README.md
