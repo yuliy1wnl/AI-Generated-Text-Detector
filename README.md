@@ -4,9 +4,10 @@
 ![PyTorch](https://img.shields.io/badge/PyTorch-Deep%20Learning-red)
 ![RoBERTa](https://img.shields.io/badge/Model-RoBERTa-orange)
 ![MLflow](https://img.shields.io/badge/MLOps-MLflow-blue)
+![Docker](https://img.shields.io/badge/Container-Docker-2496ED)
 ![License](https://img.shields.io/badge/License-MIT-brightgreen)
 
-A binary text classifier that distinguishes **human-written** from **AI-generated** essays, fine-tuned on RoBERTa-base with full MLflow experiment tracking.
+A binary text classifier that distinguishes **human-written** from **AI-generated** essays, fine-tuned on RoBERTa-base with full MLflow experiment tracking and Docker deployment.
 
 ---
 
@@ -47,6 +48,7 @@ Most AI text detection projects report inflated metrics due to data leakage. Thi
 | Scheduler | Linear warmup (10% steps) |
 | Mixed Precision | float16 via GradScaler |
 | Experiment Tracking | MLflow |
+| Deployment | Flask + Docker |
 
 ---
 
@@ -77,19 +79,24 @@ All experiments tracked with MLflow:
 ---
 
 ## Project Structure
+
 ```
 AI-Generated-Text-Detector/
+├── app.py                        # Flask inference API
+├── Dockerfile                    # Container definition
+├── requirements.txt
+├── .gitignore
 ├── notebooks/
-│   └── training.ipynb            # Full training pipeline
+│   └── Model_training.ipynb      # Full training pipeline
 ├── assets/
 │   ├── gui/
 │   │   ├── static/styles.css     # Web interface styling
 │   │   └── templates/index.html  # Web interface template
+│   ├── models/
+│   │   └── saved_model/          # RoBERTa model files
 │   └── confusion_matrix.png      # Evaluation results
 ├── data/
 │   └── README.md                 # Dataset download instructions
-├── requirements.txt
-├── .gitignore
 └── README.md
 ```
 
@@ -97,10 +104,21 @@ AI-Generated-Text-Detector/
 
 ## Usage
 
-1. Open `notebooks/training.ipynb` in Google Colab
-2. Mount Google Drive and upload dataset
+### Run with Docker
+
+```bash
+docker build -t ai-detector .
+docker run -p 5001:5001 ai-detector
+```
+
+Then open `http://localhost:5001` in your browser.
+
+### Train from scratch
+
+1. Open `notebooks/Model_training.ipynb` in Google Colab
+2. Mount Google Drive and upload datasets
 3. Run all cells in order
-4. For web interface, open `notebooks/gui_deployment.ipynb`
+4. Download saved model and place in `assets/models/saved_model/`
 
 ---
 
